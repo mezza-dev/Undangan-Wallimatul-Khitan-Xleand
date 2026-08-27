@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Undangan Khitan</title>
+
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   HTML
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: Georgia, serif;
+    background: #f4f0e6;
+    color: #26352e;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   LOCK SCROLL
+   AKTIF SAAT AWAL
+========================================= */
+
+body.scroll-lock {
+    overflow: hidden !important;
+
+    height: 100vh !important;
+    height: 100svh !important;
+
+    touch-action: none;
+
+    overscroll-behavior: none;
+}
+
+
+/* =========================================
+   BACKSOUND
+========================================= */
+
+#backsound {
+    display: none;
+}
+
+
+/* =========================================
+   COVER
+========================================= */
+
+.cover {
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            rgba(12, 48, 37, .9),
+            rgba(12, 48, 37, .9)
+        );
+
+    color: white;
+
+    position: relative;
+
+    z-index: 100;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+
+/* =========================================
+   COVER SETELAH DIBUKA
+========================================= */
+
+.cover.dibuka {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   COVER BOX
+========================================= */
+
+.cover-box {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    animation:
+        muncul 1.5s ease;
+}
+
+
+/* =========================================
+   BISMILLAH
+========================================= */
+
+.bismillah {
+
+    font-size: 32px;
+
+    color: #d7b86a;
+
+    margin-bottom: 30px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   COVER H4
+========================================= */
+
+.cover h4 {
+
+    letter-spacing: 4px;
+
+    font-size: 16px;
+
+    margin-bottom: 20px;
+
+    font-weight: normal;
+}
+
+
+/* =========================================
+   COVER H1
+========================================= */
+
+.cover h1 {
+
+    font-size: 60px;
+
+    color: #d7b86a;
+
+    margin-bottom: 15px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   COVER PARAGRAPH
+========================================= */
+
+.cover p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.button {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    background: #d7b86a;
+
+    color: #173d30;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+
+/* =========================================
+   BUTTON HOVER
+========================================= */
+
+.button:hover {
+
+    background: white;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   BUTTON ACTIVE
+========================================= */
+
+.button:active {
+
+    transform: scale(.96);
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+section {
+
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.title {
+
+    font-size: 34px;
+
+    color: #174b39;
+
+    margin-bottom: 15px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   GARIS
+========================================= */
+
+.garis {
+
+    width: 70px;
+
+    height: 3px;
+
+    background: #d7b86a;
+
+    margin:
+        0 auto 35px;
+}
+
+
+/* =========================================
+   PEMBUKA
+========================================= */
+
+.pembuka {
+
+    background: #fffdf8;
+}
+
+
+/* =========================================
+   ARAB
+========================================= */
+
+.arab {
+
+    font-size: 28px;
+
+    color: #174b39;
+
+    line-height: 2;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   PEMBUKA PARAGRAPH
+========================================= */
+
+.pembuka p {
+
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   PROFIL
+========================================= */
+
+.profil {
+
+    background: #174b39;
+
+    color: white;
+}
+
+
+/* =========================================
+   PROFIL TITLE
+========================================= */
+
+.profil .title {
+
+    color: #d7b86a;
+}
+
+
+/* =========================================
+   NAMA
+========================================= */
+
+.nama {
+
+    font-size: 42px;
+
+    color: #d7b86a;
+
+    margin: 20px 0;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   PROFIL PARAGRAPH
+========================================= */
+
+.profil p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   ACARA
+========================================= */
+
+.acara {
+
+    background: #f4f0e6;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+
+    background: white;
+
+    padding: 30px;
+
+    margin: 20px auto;
+
+    max-width: 500px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.08);
+
+    border:
+        1px solid #ded2ad;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.card:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.12);
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.card h3 {
+
+    color: #174b39;
+
+    margin-bottom: 12px;
+
+    font-size: 24px;
+}
+
+
+/* =========================================
+   CARD PARAGRAPH
+========================================= */
+
+.card p {
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown {
+
+    background: #fffdf8;
+}
+
+
+/* =========================================
+   TIMER
+========================================= */
+
+.timer {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   TIME BOX
+========================================= */
+
+.time {
+
+    background: #174b39;
+
+    color: white;
+
+    width: 85px;
+
+    padding: 15px 5px;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================
+   TIME NUMBER
+========================================= */
+
+.time span {
+
+    display: block;
+
+    font-size: 28px;
+
+    color: #d7b86a;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   TIME LABEL
+========================================= */
+
+.time small {
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   LOKASI
+========================================= */
+
+.lokasi {
+
+    background: #174b39;
+
+    color: white;
+}
+
+
+/* =========================================
+   LOKASI TITLE
+========================================= */
+
+.lokasi .title {
+
+    color: #d7b86a;
+}
+
+
+/* =========================================
+   LOKASI PARAGRAPH
+========================================= */
+
+.lokasi p {
+
+    line-height: 1.8;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   PENUTUP
+========================================= */
+
+.penutup {
+
+    background: #fffdf8;
+}
+
+
+/* =========================================
+   PENUTUP PARAGRAPH
+========================================= */
+
+.penutup p {
+
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   PENUTUP H3
+========================================= */
+
+.penutup h3 {
+
+    margin-top: 30px;
+
+    color: #174b39;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    background: #0c3025;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   ANIMASI
+========================================= */
+
+@keyframes muncul {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px) {
+
+
+    .cover {
+
+        padding: 20px;
+    }
+
+
+    .bismillah {
+
+        font-size: 24px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .cover h4 {
+
+        font-size: 13px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .cover h1 {
+
+        font-size: 45px;
+    }
+
+
+    .cover p {
+
+        font-size: 16px;
+    }
+
+
+    .title {
+
+        font-size: 28px;
+    }
+
+
+    .nama {
+
+        font-size: 34px;
+    }
+
+
+    .arab {
+
+        font-size: 23px;
+    }
+
+
+    section {
+
+        padding:
+            65px 18px;
+    }
+
+
+    .card {
+
+        padding: 25px 20px;
+    }
+
+
+    .time {
+
+        width: 75px;
+    }
+
+
+    .time span {
+
+        font-size: 24px;
+    }
+
+}
+
+
+/* =========================================
+   HP SANGAT KECIL
+========================================= */
+
+@media(max-width:380px) {
+
+
+    .cover h1 {
+
+        font-size: 36px;
+    }
+
+
+    .bismillah {
+
+        font-size: 21px;
+    }
+
+
+    .cover p {
+
+        font-size: 15px;
+    }
+
+
+    .button {
+
+        padding:
+            13px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+
+<!-- =================================================
+     BODY DIMULAI DALAM KONDISI LOCK
+================================================= -->
+
+<body class="scroll-lock">
+
+
+
+<!-- =================================================
+     BACKSOUND
+     
+     File musik HARUS bernama:
+     backsound.mp4
+     
+     dan satu folder dengan index.html
+================================================= -->
+
+<audio
+    id="backsound"
+    loop
+    preload="auto">
+
+    <source
+        src="backsound.mp4"
+        type="audio/mp4">
+
+    Browser Anda tidak mendukung audio.
+
+</audio>
+
+
+
+<!-- =================================================
+     HALAMAN DEPAN
+================================================= -->
+
+<div
+    class="cover"
+    id="cover">
+
+
+    <div class="cover-box">
+
+
+        <!-- BISMILLAH -->
+
+        <div class="bismillah">
+
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+
+        </div>
+
+
+
+        <!-- JUDUL -->
+
+        <h4>
+
+            UNDANGAN KHITAN
+
+        </h4>
+
+
+
+        <!-- NAMA -->
+
+        <h1>
+
+            Xleand Alvaro Bilmahera
+
+        </h1>
+
+
+
+        <!-- DESKRIPSI -->
+
+        <p>
+
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam acara khitan putra kami.
+
+        </p>
+
+
+
+        <!-- =================================================
+             TOMBOL BUKA UNDANGAN
+        ================================================= -->
+
+        <button
+            type="button"
+            id="bukaUndangan"
+            class="button">
+
+            Buka Undangan
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================================
+     PEMBUKA
+================================================= -->
+
+<section
+    class="pembuka"
+    id="undangan">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Assalamu'alaikum
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+        <div class="arab">
+
+            الحمد لله رب العالمين
+
+        </div>
+
+
+        <p>
+
+            Dengan penuh rasa syukur kepada Allah SWT,
+            kami bermaksud mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam acara khitan putra kami.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     PROFIL
+================================================= -->
+
+<section class="profil">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Putra Kami
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+        <div class="nama">
+
+            Xleand Alvaro Bilmahera
+
+        </div>
+
+
+        <p>
+
+            Putra dari pasangan
+
+        </p>
+
+
+        <p>
+
+            <b>
+
+                Bapak Subiyono
+
+            </b>
+
+
+            <br>
+
+
+            &
+
+
+            <br>
+
+
+            <b>
+
+                Ibu Mutoharoh
+
+            </b>
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     ACARA
+================================================= -->
+
+<section class="acara">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Waktu & Tempat
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+
+        <!-- TANGGAL -->
+
+        <div class="card">
+
+
+            <div class="icon">
+
+                📅
+
+            </div>
+
+
+            <h3>
+
+                Tanggal
+
+            </h3>
+
+
+            <p>
+
+                Jumat, 18 September 2026
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- WAKTU -->
+
+        <div class="card">
+
+
+            <div class="icon">
+
+                ⏰
+
+            </div>
+
+
+            <h3>
+
+                Waktu
+
+            </h3>
+
+
+            <p>
+
+                08.00 WIB
+
+                <br>
+
+                Sampai selesai
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- TEMPAT -->
+
+        <div class="card">
+
+
+            <div class="icon">
+
+                📍
+
+            </div>
+
+
+            <h3>
+
+                Tempat
+
+            </h3>
+
+
+            <p>
+
+                Kediaman Bapak Subiyono
+
+                <br>
+
+                Desa Jipang Rt 02 Rw 02
+
+                <br>
+
+                Cepu, Blora-Jawa Tengah
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     COUNTDOWN
+================================================= -->
+
+<section class="countdown">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Menuju Hari Acara
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+        <p>
+
+            Hitung mundur menuju acara khitan.
+
+        </p>
+
+
+
+        <div class="timer">
+
+
+            <div class="time">
+
+                <span id="hari">
+
+                    0
+
+                </span>
+
+                <small>
+
+                    Hari
+
+                </small>
+
+            </div>
+
+
+
+            <div class="time">
+
+                <span id="jam">
+
+                    0
+
+                </span>
+
+                <small>
+
+                    Jam
+
+                </small>
+
+            </div>
+
+
+
+            <div class="time">
+
+                <span id="menit">
+
+                    0
+
+                </span>
+
+                <small>
+
+                    Menit
+
+                </small>
+
+            </div>
+
+
+
+            <div class="time">
+
+                <span id="detik">
+
+                    0
+
+                </span>
+
+                <small>
+
+                    Detik
+
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     LOKASI
+================================================= -->
+
+<section class="lokasi">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Lokasi Acara
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+        <p>
+
+            Kediaman Bapak Subiyono
+
+            <br>
+
+            Desa Jipang Rt 02 Rw 02
+
+            <br>
+
+            Cepu, Blora-Jawa Tengah
+
+        </p>
+
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Bandung"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button">
+
+            📍 Buka Google Maps
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     PENUTUP
+================================================= -->
+
+<section class="penutup">
+
+
+    <div class="container">
+
+
+        <h2 class="title">
+
+            Terima Kasih
+
+        </h2>
+
+
+        <div class="garis"></div>
+
+
+        <p>
+
+            Merupakan suatu kehormatan dan kebahagiaan
+            bagi kami apabila Bapak/Ibu/Saudara/i
+            berkenan hadir dan memberikan doa restu
+            kepada putra kami.
+
+        </p>
+
+
+        <h3>
+
+            Wassalamu'alaikum
+
+            <br>
+
+            Warahmatullahi Wabarakatuh
+
+        </h3>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<footer>
+
+    © 2026 Undangan Khitan
+    Xleand Alvaro Bilmahera
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   AMBIL ELEMENT
+===================================================== */
+
+const body =
+    document.body;
+
+
+const tombolBuka =
+    document.getElementById(
+        "bukaUndangan"
+    );
+
+
+const cover =
+    document.getElementById(
+        "cover"
+    );
+
+
+const backsound =
+    document.getElementById(
+        "backsound"
+    );
+
+
+
+/* =====================================================
+   PAKSA POSISI KE PALING ATAS SAAT HALAMAN DIBUKA
+===================================================== */
+
+window.scrollTo(
+    0,
+    0
+);
+
+
+
+/* =====================================================
+   CEGAH WHEEL MOUSE
+===================================================== */
+
+window.addEventListener(
+    "wheel",
+    function(event) {
+
+        if (
+            body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+
+/* =====================================================
+   CEGAH SWIPE / TOUCH DI HP
+===================================================== */
+
+window.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (
+            body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+
+/* =====================================================
+   CEGAH TOUCH START / END SCROLL
+===================================================== */
+
+let posisiTouchAwal = 0;
+
+
+window.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (
+            body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            posisiTouchAwal =
+                event.touches[0].clientY;
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+window.addEventListener(
+    "touchend",
+    function(event) {
+
+        if (
+            body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+
+/* =====================================================
+   CEGAH KEYBOARD SCROLL
+===================================================== */
+
+window.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (
+            !body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const tombolScroll = [
+
+            "ArrowUp",
+
+            "ArrowDown",
+
+            "ArrowLeft",
+
+            "ArrowRight",
+
+            "PageUp",
+
+            "PageDown",
+
+            "Home",
+
+            "End",
+
+            " "
+
+        ];
+
+
+        if (
+            tombolScroll.includes(
+                event.key
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+
+    }
+);
+
+
+
+/* =====================================================
+   CEGAH SCROLL DENGAN SCROLLBAR / PROGRAM LAIN
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (
+            body.classList.contains(
+                "scroll-lock"
+            )
+        ) {
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   BUKA UNDANGAN
+===================================================== */
+
+tombolBuka.addEventListener(
+    "click",
+    function() {
+
+
+        /* ==============================================
+           1. PUTAR BACKSOUND
+        ============================================== */
+
+        backsound.volume =
+            0.7;
+
+
+        const mulaiMusik =
+            backsound.play();
+
+
+        if (
+            mulaiMusik !== undefined
+        ) {
+
+            mulaiMusik.catch(
+                function(error) {
+
+                    console.log(
+                        "Audio tidak dapat diputar:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* ==============================================
+           2. LEPAS LOCK SCROLL
+        ============================================== */
+
+        body.classList.remove(
+            "scroll-lock"
+        );
+
+
+
+        /* ==============================================
+           3. HILANGKAN COVER
+        ============================================== */
+
+        cover.classList.add(
+            "dibuka"
+        );
+
+
+
+        /* ==============================================
+           4. MATIKAN TOMBOL
+        ============================================== */
+
+        tombolBuka.disabled =
+            true;
+
+
+
+        tombolBuka.style.pointerEvents =
+            "none";
+
+
+
+        /* ==============================================
+           5. SCROLL KE ISI UNDANGAN
+        ============================================== */
+
+        setTimeout(
+            function() {
+
+                document
+                    .getElementById(
+                        "undangan"
+                    )
+                    .scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    });
+
+            },
+            250
+        );
+
+
+    }
+);
+
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+/*
+   TANGGAL ACARA
+   ==============================
+   19 September 2026
+   08.00 WIB
+*/
+
+const tanggalAcara =
+    new Date(
+        "September 19, 2026 08:00:00"
+    ).getTime();
+
+
+
+/* =====================================================
+   FUNGSI COUNTDOWN
+===================================================== */
+
+function updateCountdown() {
+
+
+    const sekarang =
+        new Date().getTime();
+
+
+    const jarak =
+        tanggalAcara -
+        sekarang;
+
+
+
+    /* ==============================================
+       JIKA ACARA SUDAH DIMULAI
+    ============================================== */
+
+    if (
+        jarak <= 0
+    ) {
+
+
+        document.getElementById(
+            "hari"
+        ).innerHTML =
+            "0";
+
+
+        document.getElementById(
+            "jam"
+        ).innerHTML =
+            "0";
+
+
+        document.getElementById(
+            "menit"
+        ).innerHTML =
+            "0";
+
+
+        document.getElementById(
+            "detik"
+        ).innerHTML =
+            "0";
+
+
+        document.querySelector(
+            ".timer"
+        ).innerHTML =
+            "<h3>🎉 Acara Telah Dimulai 🎉</h3>";
+
+
+        return;
+
+    }
+
+
+
+    /* ==============================================
+       HARI
+    ============================================== */
+
+    const hari =
+        Math.floor(
+            jarak /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+
+    /* ==============================================
+       JAM
+    ============================================== */
+
+    const jam =
+        Math.floor(
+            (
+                jarak %
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            )
+            /
+            (
+                1000 *
+                60 *
+                60
+            )
+        );
+
+
+
+    /* ==============================================
+       MENIT
+    ============================================== */
+
+    const menit =
+        Math.floor(
+            (
+                jarak %
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            )
+            /
+            (
+                1000 *
+                60
+            )
+        );
+
+
+
+    /* ==============================================
+       DETIK
+    ============================================== */
+
+    const detik =
+        Math.floor(
+            (
+                jarak %
+                (
+                    1000 *
+                    60
+                )
+            )
+            /
+            1000
+        );
+
+
+
+    /* ==============================================
+       TAMPILKAN COUNTDOWN
+    ============================================== */
+
+    document.getElementById(
+        "hari"
+    ).innerHTML =
+        hari > 0
+        ? hari
+        : 0;
+
+
+    document.getElementById(
+        "jam"
+    ).innerHTML =
+        jam > 0
+        ? jam
+        : 0;
+
+
+    document.getElementById(
+        "menit"
+    ).innerHTML =
+        menit > 0
+        ? menit
+        : 0;
+
+
+    document.getElementById(
+        "detik"
+    ).innerHTML =
+        detik > 0
+        ? detik
+        : 0;
+
+}
+
+
+
+/* =====================================================
+   JALANKAN COUNTDOWN
+===================================================== */
+
+updateCountdown();
+
+
+
+/* =====================================================
+   UPDATE SETIAP 1 DETIK
+===================================================== */
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+</script>
+
+
+</body>
+
+</html>
